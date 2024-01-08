@@ -38,7 +38,8 @@ class _BaseWrapper():
             label = self.model.medcam_dict['label']
 
 
-        self.mask = self._isolate_class(self.logits, label)
+        # self.mask = self._isolate_class(self.logits, label)
+        self.mask = None
         self.logits.backward(gradient=self.mask, retain_graph=self.retain_graph)
         self.remove_hook(forward=True, backward=True)
 
